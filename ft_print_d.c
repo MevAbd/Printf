@@ -16,6 +16,29 @@ void	ft_putstr(const char *str)
 		ft_putchar(str[i++]);
 }
 
+void	ft_putnbr_base(long long int nbr)
+{
+	long long int			nb;
+	long long int			size;
+	char *base;
+
+	base = "0123456789abcdef";
+	size = 16;
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nb = -nbr;
+	}
+	else
+		nb = nbr;
+	if (nb >= size)
+	{
+		ft_putnbr_base(nb / size);
+		ft_putnbr_base(nb % size);
+	}
+	else
+		ft_putchar(base[nb]);
+}
 void	ft_putnbr(int n)
 {
 	if (n < 0)
@@ -88,11 +111,13 @@ int		ft_check_global(const char *str)
 
 int		ft_printf(const char *str, ...)
 {
-	size_t i;
-	int nb;
-	char c;
-	const char *test;
-	va_list argptr;
+	size_t 		i;
+	int		nb;
+	char 		c;
+	const char 	*test;
+	long long int	*ptr;
+	va_list 	argptr;
+
 	i = 0;
 	va_start(argptr, str);
 	if (ft_check_global(str) == -1)
@@ -133,24 +158,30 @@ int		ft_printf(const char *str, ...)
 				va_end(argptr);
 				i++;
 			}
-			
+			else if (str[i] == 'p')
+			{
+				ptr = va_arg(argptr, long long int  *);
+				ft_putchar('0');
+				ft_putchar('x');
+				ft_putnbr_base((long long int)ptr);
+				va_end(argptr);
+				i++;
+
+			}
+
 		}
 		write(1, &str[i], 1);
 		i++;
 	}
-		return (0);
+	return (0);
 }
 
 int		main()
 {
-//	int ret = -2147483648;
-//	int rat = 350;
-//	int i = 50;
-	//char c = 'g';
-	char *str; 
+	int c;
 
-	str = "testons notre STRING";
-	printf("coucou %s\n", str);
-	ft_printf("coucou %s\n", str);
+	c = 'd';
+	printf("address c = %p\n", &c);
+	ft_printf("address c = %p\n", &c);
 	return (0);
 }
