@@ -6,7 +6,7 @@
 /*   By: malbrand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 10:32:05 by malbrand          #+#    #+#             */
-/*   Updated: 2021/06/23 05:11:45 by malbrand         ###   ########.fr       */
+/*   Updated: 2021/06/28 05:52:12 by malbrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int ft_printf(const char *str, ...)
 	va_list param;
 	int		i;
 	int		ret;
+	t_param *params;
 
 	va_start(param, str);
 	i = 0;
@@ -25,7 +26,7 @@ int ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			return (0);
+			param = complete_struct(&str[i], p
 		}
 		ft_putchar(str[i]);
 		ret = ret + 1;

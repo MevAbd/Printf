@@ -6,7 +6,7 @@
 /*   By: malbrand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 04:20:45 by malbrand          #+#    #+#             */
-/*   Updated: 2021/06/23 05:11:50 by malbrand         ###   ########.fr       */
+/*   Updated: 2021/06/28 05:35:35 by malbrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@
 
 typedef struct		s_param
 {
+	int				point;
 	char			flag;
+	int				first_width;
+	int				second_width;
+	char			conv_indic;
+	int				increment;
+	
 }					t_param;
 
 void	ft_putchar(char c);
