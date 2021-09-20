@@ -20,6 +20,7 @@ SRC			+= lib.c
 SRC			+= lib2.c
 SRC			+= sort_p.c
 SRC			+= str_verif.c
+SRC			+= itoa_base.c
 
 OBJ	= printf.o\
 			ft_sort.o \
@@ -27,6 +28,7 @@ OBJ	= printf.o\
 			lib2.o \
 			sort_p.o \
 			str_verif.o \
+			itoa_base.o \
 	  
 
 all: $(NAME)

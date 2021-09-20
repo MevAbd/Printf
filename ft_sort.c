@@ -124,8 +124,6 @@ size_t	ft_s(const char *str, va_list argptr, int *ret)
 	if (str[i] == '%')
 	{
 		i++;
-		while (str[i] == ' ')
-			i++;
 		if (str[i] == 's')
 		{
 			test = va_arg(argptr, const char *);
@@ -138,7 +136,6 @@ size_t	ft_s(const char *str, va_list argptr, int *ret)
 			if (test)
 			{
 				ft_putstr(test, ret);
-				va_end(argptr);
 				i++;
 			}
 		}

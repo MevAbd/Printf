@@ -15,9 +15,12 @@
 size_t	ft_p(const char *str, va_list argptr, int *ret)
 {
 	size_t			i;
-	long long int	*ptr;
+	void			*adress;
+	long long		nb;
+	char			*str_nb;
 
 	i = 0;
+	str_nb = NULL;
 	if (str[i] == '%')
 	{
 		i++;
@@ -25,12 +28,12 @@ size_t	ft_p(const char *str, va_list argptr, int *ret)
 			i++;
 		if (str[i] == 'p')
 		{
-			ptr = va_arg(argptr, long long int*);
-			write(1, "0x", 2);
-			*ret = *ret + 2;
-			ft_putnbr_base((long long int)ptr, ret);
-			va_end(argptr);
-			i++;
+			adress = va_arg(argptr, void *);
+			nb = (long long)adress;
+			str_nb = ft_itoa_base(nb, "0123456789abcdef");
+			ft_putstr("0x", ret);
+			ft_putstr(str_nb, ret);
+			free(str_nb);
 		}
 	}
 	return (i);

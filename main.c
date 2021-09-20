@@ -1,12 +1,11 @@
 #include "ft_printf.h"
 
-int main()
+int	main()
 {
-//	long i;
+	int	nb;
 
-//	i = 9223372036854775807;
-
-	ft_printf("%p\n", LONG_MIN);
-//	printf("%p\n", ULONG_MAX);
+	nb = 42;
+	ft_printf("%d%%\n", nb);
+	printf("%d%%\n", nb);
 	return (0);
 }
