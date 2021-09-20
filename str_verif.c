@@ -23,18 +23,19 @@ size_t	ft_str_test(const char *str, va_list argptr, int *ret)
 	{
 		while (str[i + j] == ' ')
 			j++;
+		if (str[i] == '%' && str[i + 1] == '%')
+		{
+			write(1, "%", 1);
+			*ret = *ret + 1;
+			i += 2;
+			return (i);
+		}
 		if (str[i + j] == 'd' || str[i + j] == 'i' || str[i + j] == 'c')
 			i = i + ft_str_test1(&str[i], argptr, ret);
 		if (str[i + j] == 's' || str[i + j] == 'p')
 			i = i + ft_str_test2(&str[i], argptr, ret);
 		if (str[i + j] == 'u' || str[i + j] == 'x' || str[i + j] == 'X')
 			i = i + ft_str_test3(&str[i], argptr, ret);
-	}
-	if (str[i] == '%' && str[i + 1] == '%')
-	{
-		write(1, "%", 1);
-		*ret = *ret + 1;
-		i += 2;
 	}
 	return (i);
 }
