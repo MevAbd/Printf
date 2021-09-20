@@ -57,11 +57,11 @@ void	ft_putstr(const char *str, int *ret)
 	}
 }
 
-void	ft_putnbr_base(long long int nbr, int *ret)
+void	ft_putnbr_base(long nbr, int *ret)
 {
-	long long int	nb;
-	long long int	size;
-	char			*base;
+	long	nb;
+	long	size;
+	char	*base;
 
 	base = "0123456789abcdef";
 	size = 16;

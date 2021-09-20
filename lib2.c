@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-void	ft_unsigned_putnbr_base(long long int nbr, char c, int *ret)
+void	ft_unsigned_putnbr_base(long nbr, char c, int *ret)
 {
-	long long int	size;
-	char			*base;
+	long	size;
+	char	*base;
 
 	if (c == 'x')
 		base = "0123456789abcdef";
